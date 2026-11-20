@@ -132,3 +132,7 @@ The Navbar provides access to the main application sections and user navigation.
 ## Footer
 
 The reusable Footer component provides consistent footer content across pages.
+
+## Services Listing
+
+Customers can browse available salon services from the services page.
