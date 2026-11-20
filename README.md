@@ -144,3 +144,7 @@ Each service has a dedicated details page for viewing service information.
 ## Customer Dashboard
 
 Customers can access their dashboard to manage appointments and account information.
+
+## Admin Dashboard
+
+Administrators can manage services and customer appointments.
