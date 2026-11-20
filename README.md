@@ -152,3 +152,7 @@ Administrators can manage services and customer appointments.
 ## Appointment Booking
 
 Customers can select a service, appointment date and available time slot.
+
+## Dynamic Availability
+
+Available appointment slots are updated according to the selected date.
