@@ -156,3 +156,7 @@ Customers can select a service, appointment date and available time slot.
 ## Dynamic Availability
 
 Available appointment slots are updated according to the selected date.
+
+## Appointment Management
+
+Customers can view their appointments while administrators can manage appointment statuses.
