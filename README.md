@@ -172,3 +172,7 @@ Administrators can access the transaction management page.
 ## Stripe Checkout
 
 The frontend integrates Stripe Checkout for appointment payments.
+
+## Payment Results
+
+Dedicated success and cancellation pages handle the checkout result experience.
