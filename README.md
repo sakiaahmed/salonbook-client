@@ -180,3 +180,7 @@ Dedicated success and cancellation pages handle the checkout result experience.
 ## Notifications
 
 React Hot Toast provides user feedback for application actions.
+
+## Environment Configuration
+
+Configure the server URL through environment variables. Never expose private server credentials in client-side code.
