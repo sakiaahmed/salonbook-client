@@ -168,3 +168,7 @@ Customers can view their payment transaction history.
 ## Admin Transactions
 
 Administrators can access the transaction management page.
+
+## Stripe Checkout
+
+The frontend integrates Stripe Checkout for appointment payments.
