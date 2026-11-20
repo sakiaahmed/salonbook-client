@@ -164,3 +164,7 @@ Customers can view their appointments while administrators can manage appointmen
 ## Customer Transactions
 
 Customers can view their payment transaction history.
+
+## Admin Transactions
+
+Administrators can access the transaction management page.
