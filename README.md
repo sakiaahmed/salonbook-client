@@ -124,3 +124,7 @@ The frontend is built with Next.js App Router and reusable React components.
 ## Authentication Pages
 
 The application provides dedicated sign-in and sign-up pages using Better Auth.
+
+## Navigation
+
+The Navbar provides access to the main application sections and user navigation.
