@@ -116,3 +116,7 @@ Stripe test mode is used during development.
 ## Project
 
 SalonBook is a salon appointment booking platform that allows customers to book salon services online and administrators to manage services, appointments, and payments.
+
+## Application Architecture
+
+The frontend is built with Next.js App Router and reusable React components.
