@@ -140,3 +140,7 @@ Customers can browse available salon services from the services page.
 ## Service Details
 
 Each service has a dedicated details page for viewing service information.
+
+## Customer Dashboard
+
+Customers can access their dashboard to manage appointments and account information.
