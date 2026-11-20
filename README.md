@@ -148,3 +148,7 @@ Customers can access their dashboard to manage appointments and account informat
 ## Admin Dashboard
 
 Administrators can manage services and customer appointments.
+
+## Appointment Booking
+
+Customers can select a service, appointment date and available time slot.
