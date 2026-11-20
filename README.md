@@ -120,3 +120,7 @@ SalonBook is a salon appointment booking platform that allows customers to book 
 ## Application Architecture
 
 The frontend is built with Next.js App Router and reusable React components.
+
+## Authentication Pages
+
+The application provides dedicated sign-in and sign-up pages using Better Auth.
