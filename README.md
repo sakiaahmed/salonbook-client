@@ -136,3 +136,7 @@ The reusable Footer component provides consistent footer content across pages.
 ## Services Listing
 
 Customers can browse available salon services from the services page.
+
+## Service Details
+
+Each service has a dedicated details page for viewing service information.
