@@ -1,68 +1,100 @@
 
 # SalonBook Client
 
-Frontend application for SalonBook, a salon appointment booking and management platform.
+Frontend application for SalonBook, a full-stack salon appointment booking and management platform.
 
 ## Technologies Used
 
-- Next.js
+- Next.js (App Router)
 - React
 - TypeScript
 - Tailwind CSS
 - Better Auth
-- Stripe
+- Stripe Checkout
 - Lucide React
 - React Hot Toast
 
 ## Features
 
-- Responsive user interface
+### Authentication
 - User registration and login
-- Customer and admin dashboards
+- Email and password authentication
+- Google authentication
+- Role-based access control
+- Customer and admin accounts
+
+### Customer Features
 - Browse salon services
 - Search services
+- Filter services by category
+- Sort services by price (low to high and high to low)
 - View service details
 - Book appointments
-- Dynamic available time slots
-- Appointment management
-- Customer profile management
-- Admin service management
-- Admin appointment management
-- Online payment using Stripe
-- Payment history
-- Loading states and notifications
+- View available appointment slots
+- Manage appointments
+- Cancel eligible appointments
+- Make online payments using Stripe
+- View transaction history
+- Update profile information
+- Upload profile pictures
+
+### Admin Features
+- Admin dashboard with statistics
+- Sidebar navigation
+- Manage salon services
+- Add new services
+- Update existing services
+- Activate and deactivate services
+- Manage customer appointments
+- Confirm appointments
+- Cancel appointments
+- View transaction history
+- Manage users
+- Block and unblock users
+- Update admin profile
+
+### Additional Features
+- Responsive design for mobile, tablet, and desktop
+- Loading states
+- Error handling
+- Notifications using React Hot Toast
+- Protected dashboard routes
+- Dynamic appointment availability
+- Stripe payment success and cancellation pages
 
 ## Installation
 
-1. Clone the repository:
+### 1. Clone the Repository
 
 ```bash
 git clone YOUR_CLIENT_REPOSITORY_URL
 ```
 
-2. Navigate to the client directory:
+### 2. Navigate to the Project Directory
 
 ```bash
 cd salonbook-client
 ```
 
-3. Install dependencies:
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-4. Create a `.env.local` file in the root directory.
+### 4. Configure Environment Variables
+
+Create a `.env.local` file in the project root.
 
 Add the following environment variable:
 
 ```env
-NEXT_PUBLIC_SERVER_URL=http://localhost:5000
+NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
-Replace the URL with your deployed backend URL when deploying.
+Replace the URL with your deployed backend URL when deploying the application.
 
-## Run the Development Server
+### 5. Start the Development Server
 
 ```bash
 npm run dev
@@ -70,9 +102,7 @@ npm run dev
 
 Open your browser and visit:
 
-```text
 http://localhost:3000
-```
 
 ## Available Scripts
 
@@ -87,100 +117,99 @@ http://localhost:3000
 
 ### Customer
 
+Customers can:
+
 - Browse salon services
+- Search and filter services
+- Sort services by price
 - Book appointments
 - View appointments
-- Cancel appointments
+- Cancel eligible appointments
 - Make payments
-- View payment history
-- Update profile
+- View transaction history
+- Update profile information
 
 ### Admin
 
-- Manage salon services
-- Add new services
-- Update existing services
-- Activate or deactivate services
-- View customer appointments
-- Confirm appointments
-- Cancel appointments
-- View transactions
-- Manage users
+Administrators can:
 
-## Payment
+- Access the admin dashboard
+- Manage salon services
+- Add, edit, and deactivate services
+- View and manage appointments
+- Confirm and cancel appointments
+- Manage registered users
+- Block and unblock users
+- View transactions
+- Update admin profile
+
+## Authentication
+
+SalonBook uses Better Auth for authentication.
+
+The application supports:
+
+- Email and password authentication
+- Google authentication
+- Role-based access for customers and administrators
+- Protected dashboard pages
+
+## Appointment Booking
+
+Customers can select a salon service, appointment date, and available time slot.
+
+The application dynamically displays available appointment slots based on the selected date.
+
+## Payment Integration
 
 SalonBook integrates Stripe Checkout for secure online payments.
 
 Stripe test mode is used during development.
 
-## Project
+The application includes:
 
-SalonBook is a salon appointment booking platform that allows customers to book salon services online and administrators to manage services, appointments, and payments.
+- Stripe Checkout
+- Payment success page
+- Payment cancellation page
+- Customer transaction history
+- Admin transaction management
+
+## Project Structure
+
+```text
+salonbook-client/
+├── app/
+│   ├── dashboard/
+│   │   ├── admin/
+│   │   └── customer/
+│   ├── services/
+│   ├── sign-in/
+│   ├── sign-up/
+│   └── ...
+├── components/
+├── lib/
+├── public/
+├── .env.local
+├── package.json
+└── README.md
+```
+
+## Environment Variables
+
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_API_URL` | Backend server URL |
+
+Never expose private API keys, database credentials, or server secrets in client-side environment variables.
 
 ## Application Architecture
 
-The frontend is built with Next.js App Router and reusable React components.
+The frontend is built using Next.js App Router and reusable React components.
 
-## Authentication Pages
+The application communicates with the backend REST API for authentication, services, appointments, users, and payment-related operations.
 
-The application provides dedicated sign-in and sign-up pages using Better Auth.
+## Project Description
 
-## Navigation
+SalonBook is an online salon appointment booking platform that allows customers to discover salon services, book appointments, and make payments online.
 
-The Navbar provides access to the main application sections and user navigation.
-
-## Footer
-
-The reusable Footer component provides consistent footer content across pages.
-
-## Services Listing
-
-Customers can browse available salon services from the services page.
-
-## Service Details
-
-Each service has a dedicated details page for viewing service information.
-
-## Customer Dashboard
-
-Customers can access their dashboard to manage appointments and account information.
-
-## Admin Dashboard
-
-Administrators can manage services and customer appointments.
-
-## Appointment Booking
-
-Customers can select a service, appointment date and available time slot.
-
-## Dynamic Availability
-
-Available appointment slots are updated according to the selected date.
-
-## Appointment Management
-
-Customers can view their appointments while administrators can manage appointment statuses.
-
-## Customer Transactions
-
-Customers can view their payment transaction history.
-
-## Admin Transactions
-
-Administrators can access the transaction management page.
-
-## Stripe Checkout
-
-The frontend integrates Stripe Checkout for appointment payments.
-
-## Payment Results
-
-Dedicated success and cancellation pages handle the checkout result experience.
-
-## Notifications
-
-React Hot Toast provides user feedback for application actions.
-
-## Environment Configuration
-
-Configure the server URL through environment variables. Never expose private server credentials in client-side code.
+Administrators can manage services, appointments, transactions, and registered users through a dedicated admin dashboard.

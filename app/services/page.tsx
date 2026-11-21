@@ -11,6 +11,7 @@ import {
   Sparkles,
   Loader2,
   RefreshCw,
+  ArrowDownUp,
 } from "lucide-react";
 
 type Service = {
@@ -36,6 +37,7 @@ export default function ServicesPage() {
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
+  const [sortOrder, setSortOrder] = useState("default");
 
   const fetchServices = async () => {
     try {
@@ -79,7 +81,7 @@ export default function ServicesPage() {
   }, [services]);
 
   const filteredServices = useMemo(() => {
-    return services.filter((service) => {
+    const filtered = services.filter((service) => {
       const name = service.serviceName || service.name || "";
       const query = search.toLowerCase();
 
@@ -92,7 +94,15 @@ export default function ServicesPage() {
 
       return matchesSearch && matchesCategory;
     });
-  }, [services, search, category]);
+
+    if (sortOrder === "low-to-high") {
+      filtered.sort((a, b) => Number(a.price) - Number(b.price));
+    } else if (sortOrder === "high-to-low") {
+      filtered.sort((a, b) => Number(b.price) - Number(a.price));
+    }
+
+    return filtered;
+  }, [services, search, category, sortOrder]);
 
   const formatPrice = (price: number) => {
     return `৳${Number(price).toLocaleString("en-BD")}`;
@@ -165,6 +175,24 @@ export default function ServicesPage() {
               </button>
             ))}
           </div>
+        </div>
+
+        {/* PRICE SORTING */}
+        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
+            <ArrowDownUp className="h-4 w-4 text-pink-600" />
+            Sort by price:
+          </div>
+
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 outline-none transition focus:border-pink-500 focus:ring-2 focus:ring-pink-100"
+          >
+            <option value="default">Default</option>
+            <option value="low-to-high">Price: Low to High</option>
+            <option value="high-to-low">Price: High to Low</option>
+          </select>
         </div>
 
         {/* LOADING */}
