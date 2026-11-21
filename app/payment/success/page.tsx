@@ -13,7 +13,9 @@ import {
 } from "lucide-react";
 
 const API_URL = (
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
+  process.env.NEXT_PUBLIC_SERVER_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  "http://localhost:5000"
 ).replace(/\/+$/, "");
 
 type PaymentStatus = "checking" | "paid" | "pending" | "error";
@@ -50,6 +52,7 @@ export default function PaymentSuccessPage() {
           headers: {
             Authorization: `Bearer ${tokenData.token}`,
           },
+          credentials: "include",
           cache: "no-store",
         }
       );
@@ -62,10 +65,12 @@ export default function PaymentSuccessPage() {
         );
       }
 
-      // Match the exact Stripe Checkout Session
+      // Match exact Stripe Checkout Session
       const transaction = transactions.find(
-        (item: { stripeSessionId: string; status: string }) =>
-          item.stripeSessionId === id
+        (item: {
+          stripeSessionId: string;
+          status: string;
+        }) => item.stripeSessionId === id
       );
 
       if (transaction?.status?.toLowerCase() === "paid") {
@@ -82,8 +87,9 @@ export default function PaymentSuccessPage() {
   }, []);
 
   useEffect(() => {
-    const id = new URLSearchParams(window.location.search)
-      .get("session_id");
+    const id = new URLSearchParams(window.location.search).get(
+      "session_id"
+    );
 
     if (id) {
       setSessionId(id);
